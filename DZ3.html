@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   /*  • :active*/
+a:active {
+  color: red;
+      }
+    
+  /* Непосещённые ссылки */
+a:link {
+  color: blue;
+}
+/* Посещённые ссылки */
+a:visited {
+  color: rgb(94, 7, 233);
+}
+/* Ссылки при наведении */
+a:hover {
+  background: rgb(240, 158, 226);
+}
+/* Активные ссылки */
+a:active {
+  color: red;
+}
+
+/* :hover */
+:link:hover {
+  outline: dotted red;
+}
+
+.foo:hover {
+  background: gold;
+}
+div.menu-bar ul ul {
+  display: none;
+}
+
+div.menu-bar li:hover > ul {
+  display: block;
+}
+
+/* :first-child */
+p:first-child {
+  color: lime;
+  background-color: black;
+  padding: 5px;
+}
+ul li {
+  color: blue;
+}
+
+ul li:first-child {
+  color: red;
+  font-weight: bold;
+}
+/* :last-child */
+li:last-child {
+  background-color: lime;
+}
+/* :nth-child*/
+html {
+  font-family: sans-serif;
+}
+
+span,
+div em {
+  padding: 5px;
+  border: 1px solid green;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.first span:nth-child(2n + 1),
+.second span:nth-child(2n + 1),
+.third span:nth-of-type(2n + 1) {
+  background-color: lime;
+}
+/* ::after (:after)*/
+a::after {
+  content: "→";
+}
+.exciting-text::after {
+  content: "<- теперь это *просто* потрясающе!";
+  color: green;
+}
+
+.boring-text::after {
+  content: "<- СКУЧНО!";
+  color: red;
+}
+.ribbon {
+  background-color: #5bc8f7;
+}
+
+.ribbon::after {
+  content: "Посмотрите на этот оранжевый прямоугольник.";
+  background-color: #ffba10;
+  border-color: black;
+  border-style: dotted;
+}
+
+/* ::before (:before))*/
+li {
+  list-style-type: none;
+  position: relative;
+  margin: 2px;
+  padding: 0.5em 0.5em 0.5em 2em;
+  background: lightgrey;
+  font-family: sans-serif;
+}
+
+li.done {
+  background: #ccff99;
+}
+
+li.done::before {
+  content: "";
+  position: absolute;
+  border-color: #009933;
+  border-style: solid;
+  border-width: 0 0.3em 0.25em 0;
+  height: 1em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;
+  transform: rotate(45deg);
+  width: 0.5em;
+}
+    </style>
+    
+</head>
+<body>
+    <ul>
+        <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS/:active" target="_blank">:active</a></li>
+    </ul>
+    <!--:first-child-->
+      <div class="menu-bar">
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/ru/docs/Web/CSS/:hover" target=_blank>:hover</a>
+            <ul>
+              <li>
+                <a href="example.html">Ссылка</a>
+              </li>
+              <li>
+                <a class="menu-nav" href="example.html">Подменю</a>
+                <ul>
+                  <li>
+                    <a class="menu-nav" href="example.html">Подменю</a>
+                    <ul>
+                      <li><a href="example.html">Ссылка</a></li>
+                      <li><a href="example.html">Ссылка</a></li>
+                      <li><a href="example.html">Ссылка</a></li>
+                      <li><a href="example.html">Ссылка</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="example.html">Ссылка</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+<!--:first-child-->
+
+<div>
+    <p><a href="https://developer.mozilla.org/ru/docs/Web/CSS/:first-child" target="_blank">:first-child</a></p>
+</div>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>
+      Item 3
+      <ul>
+        <li>Item 3.1</li>
+        <li>Item 3.2</li>
+        <li>Item 3.3</li>
+      </ul>
+    </li>
+  </ul>
+  <!--:last-child-->
+  <ul>
+    <li>Этот элемент не лаймовый.</li>
+    <li>И этот тоже.</li>
+    <li>А этот да! : <a href="https://developer.mozilla.org/ru/docs/Web/CSS/:last-child" target="_blank">:last-child</a></li>
+  </ul>
+ <!-- :nth-child-->
+ <h3>
+    <code>span:nth-child(2n+1)</code>, БЕЗ элемента <code>&lt;em&gt;</code> в
+    группе элементов-потомков.
+  </h3>
+  <p>Элементы 1, 3, 5 и 7 будут выбраны.</p>
+  <div class="first">
+    <span>Span 1!</span>
+    <span>Span 2</span>
+    <span>Span 3!</span>
+    <span>Span 4</span>
+    <span>Span 5!</span>
+    <span>Span 6</span>
+    <span>Span 7!</span>
+  </div>
+  
+  <br />
+  
+  <h3>
+    <code>span:nth-child(2n+1)</code>, С элементом <code>&lt;em&gt;</code> в
+    группе элементов-потомков.
+  </h3>
+  <p>
+    Элементы 1, 5 и 7 будут выбраны.<br />
+    3 используется в подсчёте потому что это элемент-потомок, но он не выбран
+    потому что он не <code>&lt;span&gt;</code>.
+  </p>
+  <div class="second">
+    <span>Span!</span>
+    <span>Span</span>
+    <em>Это `em`.</em>
+    <span>Span</span>
+    <span>Span!</span>
+    <span>Span</span>
+    <span>Span!</span>
+    <span>Span</span>
+  </div>
+  
+  <br />
+  
+  <h3>
+    <code>span:nth-of-type(2n+1)</code>, С элементом <code>&lt;em&gt;</code> в
+    группе элементов-потомков.
+  </h3>
+  <p>
+    Элементы 1, 4, 6 и 8 будут выбраны.<br />
+    3 не используется в подсчёте и не выбран, потому что это
+    <code>&lt;em&gt;</code>, но не <code>&lt;span&gt;</code>, а
+    <code>nth-of-type</code> выбирает только потомков этого типа. Элемент
+    <code>&lt;em&gt;</code> полностью пропускается и игнорируется.
+  </p>
+  <div class="third">
+    <span>Span!</span>
+    <span>Span</span>
+    <em>Это `em`.</em>
+    <span>Span!</span>
+    <span>Span</span>
+    <span>Span!</span>
+    <span>Span</span>
+    <span>Span!</span>
+  </div>
+
+ <!-- ::after (:after)-->
+ <p class="boring-text">Вот простой скучный текст.</p>
+ <p>Вот нормальный текст, который не является ни скучным, ни потрясающим.</p>
+ <p class="exciting-text">
+   Помогать MDN легко и весело. Просто нажмите кнопку редактирования, чтобы
+   добавить новые живые примеры, или улучшить существующие примеры.
+   <a href="https://developer.mozilla.org/ru/docs/Web/CSS/::after" target="_blank">::after (:after)</a> 
+ </p>
+ <span class="ribbon">Посмотрите, где находится оранжевый прямоугольник.</span>
+
+<!-- ::before (:before)-->
+ <ul>
+    <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS/::before" target="_blank"> ::before</a></li>
+    <li>Сходить на прогулку с собакой</li>
+    <li>Тренироваться</li>
+    <li>Написать код</li>
+    <li>Слушать музыку</li>
+    <li>Отдыхать</li>
+  </ul>
+</body>
+</html>
